@@ -1,0 +1,15 @@
+kubectl apply -f platforms-depl.yaml
+kubectl get deployments
+kubectl get pods
+kubectl get services
+kubectl delete deployment platforms-depl
+kubectl rollout restart deployment platforms-depl
+kubectl get namespace
+kubectl get pods --namespace=ingress-nginx
+kubectl get services --namespace=ingress-nginx
+kubectl get ingress
+kubectl get storageclass
+kubectl get pvc
+kubectl create secret generic mssql --from-literal=SA_PASSWORD="pa55w0rd!"
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.0/deploy/static/provider/aws/deploy.yaml

@@ -7,7 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1B1EBCC2-1DC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{F29AFD9F-7BDD-4D4E-97AA-6CE77BFB077D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlatformService", "src\Services\PlatformService\PlatformService.csproj", "{A4EEAA85-AC4C-4DA6-82B3-B4BE019F504C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlatformService", "src\Services\PlatformService\PlatformService.csproj", "{A4EEAA85-AC4C-4DA6-82B3-B4BE019F504C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandsService", "src\Services\CommandsService\CommandsService.csproj", "{C21135AC-CAFC-4C16-A145-9343CFCF738C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +21,10 @@ Global
 		{A4EEAA85-AC4C-4DA6-82B3-B4BE019F504C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4EEAA85-AC4C-4DA6-82B3-B4BE019F504C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4EEAA85-AC4C-4DA6-82B3-B4BE019F504C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C21135AC-CAFC-4C16-A145-9343CFCF738C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C21135AC-CAFC-4C16-A145-9343CFCF738C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C21135AC-CAFC-4C16-A145-9343CFCF738C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C21135AC-CAFC-4C16-A145-9343CFCF738C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -26,6 +32,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F29AFD9F-7BDD-4D4E-97AA-6CE77BFB077D} = {1B1EBCC2-1DC2-4BDB-9B75-A84806DF8A8F}
 		{A4EEAA85-AC4C-4DA6-82B3-B4BE019F504C} = {F29AFD9F-7BDD-4D4E-97AA-6CE77BFB077D}
+		{C21135AC-CAFC-4C16-A145-9343CFCF738C} = {F29AFD9F-7BDD-4D4E-97AA-6CE77BFB077D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B907B345-EF1F-4CCF-AE09-557D19A0489D}

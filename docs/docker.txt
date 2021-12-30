@@ -1,0 +1,7 @@
+docker build -t czucherato/platformservice .
+docker run -p 8080:80 -d czucherato/platformservice
+docker push czucherato/platformservice
+
+docker ps
+docker start "image_id"
+docker stop "image_id"
