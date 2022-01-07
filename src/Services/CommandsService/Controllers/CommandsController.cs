@@ -38,7 +38,7 @@ namespace CommandsService.Controllers
             return Ok(_mapper.Map<IEnumerable<CommandReadDto>>(commands));
         }
 
-        [HttpGet("{commandId}", Name = "GetCommandForPlatform")]
+        [HttpGet("{commandId}")]
         public ActionResult<CommandReadDto> GetCommandForPlatform(int platformId, int commandId)
         {
             Console.WriteLine($"--> Hit GetCommandForPlatform: {platformId} | {commandId}");

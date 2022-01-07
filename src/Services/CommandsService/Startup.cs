@@ -5,6 +5,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using CommandsService.EventProcessing;
+using CommandsService.AsyncDataServices;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -29,8 +31,10 @@ namespace CommandsService
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CommandsService", Version = "v1" });
             });
 
+            services.AddHostedService<MessageBusSubscriber>();
             services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("InMem"));
             services.AddScoped<ICommandRepo, CommandRepo>();
+            services.AddSingleton<IEventProcessor, EventProcessor>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
