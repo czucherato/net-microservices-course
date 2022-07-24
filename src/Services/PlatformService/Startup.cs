@@ -8,7 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using PlatformService.AsyncDataServices;
 using Microsoft.Extensions.Configuration;
 using PlatformService.SyncDataServices.Http;
+using PlatformService.SyncDataServices.Grpc;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Http;
 
 namespace PlatformService
 {
@@ -37,6 +39,7 @@ namespace PlatformService
                 services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("InMem"));
             }
 
+            services.AddGrpc();
             services.AddScoped<IPlatformRepo, PlatformRepo>();
             services.AddSingleton<IMessageBusClient, MessageBusClient>();
 
@@ -63,7 +66,7 @@ namespace PlatformService
             else
             {
                 //app.UseHttpsRedirection();
-            }            
+            }
 
             app.UseRouting();
 
@@ -72,6 +75,12 @@ namespace PlatformService
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapGrpcService<GrpcPlatformService>();
+
+                endpoints.MapGet("protos/platforms.proto", async context =>
+                {
+                    await context.Response.WriteAsync(System.IO.File.ReadAllText("Protos/platforms.proto"));
+                });
             });
 
             PrepDb.PrepPopulation(app, env.IsProduction());
